@@ -47,6 +47,9 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
 
+            $table->boolean('is_favorite')->default(false);
+            $table->string('personal_note')->nullable();
+
             $table->index(['vault_id', 'id']);
 
             if (ScoutHelper::isFullTextIndex()) {
